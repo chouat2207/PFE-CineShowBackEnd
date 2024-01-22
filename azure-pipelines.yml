@@ -5,7 +5,7 @@ pool:
 
 variables:
   web_app_name: 'cine-webapp-service'
-  azureServiceConnectionId: '147eceaf-ece2-43a4-876d-8d879a735cda'
+  azureServiceConnectionId: 'srv_con_backend'
   javaVersion: '17'
 
 stages:

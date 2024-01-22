@@ -1,0 +1,29 @@
+pool:
+  name: Default
+  demands:
+    - agent.name -equals AGENTDOCKERTEST
+
+variables:
+  web_app_name: 'cine-webapp-service'
+  azureServiceConnectionId: '147eceaf-ece2-43a4-876d-8d879a735cda'
+  javaVersion: '17'
+
+stages:
+  - stage: Build
+    displayName: Build stage
+    jobs:
+      - job: BuildJob
+        steps:
+          - checkout: self
+          - script: |
+              mvn clean package
+            displayName: 'Build Maven project'
+
+          - task: AzureWebApp@1
+            displayName: 'Deploy Azure Web App: $(web_app_name)'
+            inputs:
+              azureSubscription: $(azureServiceConnectionId)
+              appName: $(web_app_name)
+              package: $(Build.ArtifactStagingDirectory)/CinemaPFE-0.0.1-SNAPSHOT.zip
+              deploymentMethod: zipDeploy
+              runtimeStack: 'JAVA|17'

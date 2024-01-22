@@ -20,7 +20,9 @@ stages:
             displayName: 'Build Maven project'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App: $(web_app_name)'
+            displayName: '
+            
+            : $(web_app_name)'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(web_app_name)

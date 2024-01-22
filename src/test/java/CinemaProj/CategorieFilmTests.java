@@ -27,29 +27,27 @@ class CategorieFilmTests {
 
     @Test
     public void updateCategorieFilmTest() {
-        CategorieFilmDto categorieFilm = new CategorieFilmDto(null, "awatef");
+        CategorieFilmDto categorieFilm = new CategorieFilmDto(null, "Comedie");
         CategorieFilmDto categorieFilm1 = categorieFilmService.save(categorieFilm);
-        categorieFilm1.setName("abdel");
+        categorieFilm1.setName("Action");
         categorieFilmService.update(categorieFilm1, categorieFilm1.getId());
-        Assert.assertEquals(categorieFilm1.getName(), "abdel");
+        Assert.assertEquals(categorieFilm1.getName(), "Action");
     }
     @Test
     public void addCategorieFilmTest() {
-        CategorieFilmDto categorieFilm = new CategorieFilmDto(null, "awatef");
+        CategorieFilmDto categorieFilm = new CategorieFilmDto(null, "Comedie");
         CategorieFilmDto categorieFilm1 = categorieFilmService.save(categorieFilm);
         List<CategorieFilmDto> categorieFilms = categorieFilmController.findCategorieFilm();
         Assert.assertTrue(categorieFilms.contains(categorieFilm1));
     }
     @Test
     public void deleteCategorieFilmTest() {
-        CategorieFilmDto categorieFilm = new CategorieFilmDto(null, "awatef");
+        CategorieFilmDto categorieFilm = new CategorieFilmDto(null, "Comedie");
         CategorieFilmDto categorieFilm1 = categorieFilmService.save(categorieFilm);
         categorieFilmController.deleteCategorieFilm(categorieFilm1.getId());
         List<CategorieFilmDto> categorieFilms = categorieFilmController.findCategorieFilm();
         Assert.assertFalse(categorieFilms.contains(categorieFilm1));
-
     }
-
     @Test
     public void findCategorieFilmTest(){
         List<CategorieFilmDto> categorieFilms = categorieFilmController.findCategorieFilm();

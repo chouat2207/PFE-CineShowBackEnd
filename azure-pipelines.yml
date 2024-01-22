@@ -24,6 +24,6 @@ stages:
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(web_app_name)
-              package: $(Build.ArtifactStagingDirectory)/CinemaPFE-0.0.1-SNAPSHOT.zip
+              package: $(Build.SourcesDirectory)/target/CinemaPFE-0.0.1-SNAPSHOT.jar
               deploymentMethod: zipDeploy
               runtimeStack: 'JAVA|17'

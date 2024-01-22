@@ -4,7 +4,7 @@ pool:
     - agent.name -equals AGENTDOCKERTEST
 
 variables:
-  web_app_name: 'cine-webapp-service'
+  web_app_name: 'app-CinemasBackEnd-240118221846'
   azureServiceConnectionId: 'srv_con_backend'
   javaVersion: '17'
 
